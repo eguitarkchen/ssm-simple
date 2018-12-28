@@ -13,7 +13,10 @@ Framework and environment config list:
 
 Content : SpringMVC-Spring-Mybatis (Clean version)
 
+There are no plugins here , you can add anything you want .
+
 Ins:
 
     Before testing , you need configure "jdbc.properties" and your Mysql database, 
     It use Mysql database to save all the data .
+    Attention to your database version , maybe you need change mysql-connector version in "pom.xml"
