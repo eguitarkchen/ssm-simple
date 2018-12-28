@@ -10,16 +10,16 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <!-- 扫描web相关的bean -->
+    <!-- scan web bean -->
     <context:component-scan base-package="org.murphy.controller"/>
 
-    <!-- 开启SpringMVC注解模式 -->
+    <!-- open SpringMVC annotation -->
     <mvc:annotation-driven/>
 
-    <!-- 静态资源默认servlet配置 -->
+    <!-- static resource servlet config -->
     <mvc:default-servlet-handler/>
 
-    <!-- 配置jsp 显示ViewResolver -->
+    <!-- jsp ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/views/"/>
