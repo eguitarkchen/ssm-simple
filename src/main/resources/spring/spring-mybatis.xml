@@ -10,13 +10,13 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- 扫描service包下所有使用注解的类型 -->
+    <!-- scan service package annotation -->
     <context:component-scan base-package="org.murphy.service"/>
 
-    <!-- 配置数据库相关参数properties的属性：${url} -->
+    <!-- configure database -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <!-- 数据库连接池 -->
+    <!-- configure database connection pool -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
@@ -29,31 +29,31 @@
         <property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"/>
     </bean>
 
-    <!-- 配置SqlSessionFactory对象 -->
+    <!-- configure SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!-- 注入数据库连接池 -->
+        <!-- database connection pool -->
         <property name="dataSource" ref="dataSource"/>
-        <!-- 扫描model包 使用别名 -->
+        <!-- scan model package -->
         <property name="typeAliasesPackage" value="com.chatRobot.model"/>
-        <!-- 扫描sql配置文件:mapper需要的xml文件 -->
+        <!-- scan sql properties:mapper.xml file -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
-    <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
+    <!-- scan Dao package，implement Dao interface ，inject into spring Container -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 注入sqlSessionFactory -->
+        <!-- inject sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <!-- 给出需要扫描Dao接口包 -->
+        <!-- scan Dao interface package -->
         <property name="basePackage" value="com.chatRobot.dao"/>
     </bean>
 
-    <!-- 配置事务管理器 -->
+    <!-- configure transaction manager -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!-- 注入数据库连接池 -->
+        <!-- inject database connection pool -->
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- 配置基于注解的声明式事务 -->
+    <!-- Configuring annotation-based declarative transactions -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
