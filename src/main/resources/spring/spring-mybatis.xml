@@ -34,7 +34,7 @@
         <!-- database connection pool -->
         <property name="dataSource" ref="dataSource"/>
         <!-- scan model package -->
-        <property name="typeAliasesPackage" value="com.chatRobot.model"/>
+        <property name="typeAliasesPackage" value="org.murphy.model"/>
         <!-- scan sql properties:mapper.xml file -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
@@ -44,7 +44,7 @@
         <!-- inject sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- scan Dao interface package -->
-        <property name="basePackage" value="com.chatRobot.dao"/>
+        <property name="basePackage" value="org.murphy.dao"/>
     </bean>
 
     <!-- configure transaction manager -->

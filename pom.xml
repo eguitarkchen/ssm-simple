@@ -17,13 +17,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <!-- 设置项目编码编码 -->
+        <!-- Encoding-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- spring版本号 -->
+        <!-- spring version -->
         <spring.version>4.3.5.RELEASE</spring.version>
-        <!-- mybatis版本号 -->
+        <!-- mybatis version -->
         <mybatis.version>3.4.1</mybatis.version>
+        <!--mysql version (change to your mysql version)-->
+        <!--mysql 8.x-->
+        <mysql.version>8.0.11</mysql.version>
+        <!--mysql 5.x-->
+        <!--<mysql.version>5.1.41</mysql.version>-->
     </properties>
 
     <dependencies>
@@ -34,14 +39,14 @@
             <version>7.0</version>
         </dependency>
 
-        <!-- 单元测试 -->
+        <!-- unit test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
 
-        <!-- 实现slf4j接口并整合 -->
+        <!-- slf4j -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -56,15 +61,16 @@
         </dependency>
 
 
-        <!-- 数据库 -->
+        <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.41</version>
+            <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- 数据库连接池 -->
+
+        <!-- database pool -->
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
@@ -78,7 +84,7 @@
             <version>${mybatis.version}</version>
         </dependency>
 
-        <!-- mybatis/spring整合包 -->
+        <!-- mybatis/spring -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
